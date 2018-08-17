@@ -1,0 +1,39 @@
+现象：windows10下，双击Spoon.bat运行，进入kettle启动界面，几秒钟后软件自动退出，命令窗抓屏查看信息内容为：
+
+DEBUG: Using JAVA_HOME
+
+DEBUG: _PENTAHO_JAVA_HOME=C:\Program Files\Java\jdk1.8.0._65
+
+DEBUG: _PENTAHO_JAVA=C:\Program Files\Java\jdk1.8.0_65\bin\javaw.exe
+
+信息无异常，百度之。
+
+查询结果一:
+
+1、Java环境配置问题：
+
+java_home：D:\Program Files\Java\jdk1.7.0_25（安装jdk路径）
+
+classpath：.;%java_home%\lib\dt.jar;%java_home%\lib\tools.jar
+
+path：在path路径中添加%java_home%\bin;%java_home%\jre\bin;
+
+kettle_home：D:\Program Files\data-integration(安装kettle路径)
+
+2、Java版本太低了，jdk1.6以上版本才行，具体的可以查看spoon.bat配置文件。
+
+3、Java环境配置对了，但是双击spoon.bat后一闪就没了，修改一下spoon.bat里内存配置：
+
+if "%PENTAHO_DI_JAVA_OPTIONS%"=="" set PENTAHO_DI_JAVA_OPTIONS="-Xms2058m" "-Xmx1024m" "-XX:MaxPermSize=256m"
+
+改为
+
+if "%PENTAHO_DI_JAVA_OPTIONS%"=="" set PENTAHO_DI_JAVA_OPTIONS="-Xms512m" "-Xmx512m" "-XX:MaxPermSize=256m"  
+
+经测试针对当前问题测试无效 
+
+查询结果二： 
+
+在“C:\Users\Administrator”下发现了.kettle 缓存文件夹，估计配置更改都缓存在这里了，遂删除之。启动spoon.bat，问题解决。 
+
+经测试发现当前问题解决，但资源库连接丢失，检查删除的文件，发现repositories.xml 中记录资源库连接信息，单独还原repositories.xml 文件，重新打开spoon.bat，资源库连接已找回，正常使用，问题解决。
