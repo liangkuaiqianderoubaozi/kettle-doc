@@ -7,7 +7,7 @@
 <a href="#question3"> 3.速度问题</a><br/>
 
 ##### <a id="question1"> windows10下spoon.bat闪退问题:</a>
-###### 1、Java环境配置问题:  
+###### 1.Java环境配置问题:  
 ###### java_home：安装jdk路径
 ###### classpath：.;%java_home%\lib\dt.jar;%java_home%\lib\tools.jar
 ###### path：在path路径中添加%java_home%\bin;%java_home%\jre\bin;
