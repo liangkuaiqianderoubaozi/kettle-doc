@@ -1,10 +1,10 @@
 #### kettle使用过程中问题
 #### 下载地址：http://www.kettle.net.cn/
 #### kettl中文api：http://www.kettle.net.cn/
-
-<a href="#question1">1.windows10下spoon.bat闪退问题</a>  
-<a href="#question2">2.数据库连接共享设置</a>  
-<a href="#question3">3.速度问题</a>  
+#### 目录 
+<a href="#question1"> 1.windows10下spoon.bat闪退问题</a><br/>  
+<a href="#question2"> 2.数据库连接共享设置</a><br/>
+<a href="#question3"> 3.速度问题</a><br/>
 
 ##### <a id="question1"> windows10下spoon.bat闪退问题:</a>
 ###### 1、Java环境配置问题:  
